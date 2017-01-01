@@ -14,8 +14,6 @@ function selfs()
 
                 },
                 complete: function (data) {
-                    }
-                    catch (e) { }
                 }
             });
 	}
@@ -36,8 +34,6 @@ function logout()
                 },
                 complete: function (data) {
                     }
-                    catch (e) { }
-                }
             });
 	}
 	catch (e) {}
@@ -58,8 +54,6 @@ function search()
                 },
                 complete: function (data) {
                     }
-                    catch (e) { }
-                }
             });
 	}
 	catch (e) {}
@@ -197,8 +191,6 @@ function songDetial(obj)
                 complete: function (data) {
                     
                     }
-                    catch (e) { }
-                }
             });
 	}
 	catch (e) {}
