@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">    
+<html manifest="demo.appcache"> 
+<head>    
+	<title>Music For Web</title>   
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel='stylesheet' href="/stylesheets/public_style.css" />
+		<script type="text/javascript" language="javascript" src="/javascripts/jquery-2.0.3.js"></script>
+        <script type="text/javascript" language="javascript" src="/javascripts/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" language="javascript" src="/javascripts/public_javascript.js"></script>
+</head>    
+	<body> 
+		<div id="viewlayer" class="viewlayer">
+        	<div id="menu_box" class="menu_box">
+           	  <img src="/stylesheets/images/title.png" class="title_img" />
+                <form>
+                	<input type="text" class="search_input">
+                    <input type="button" class="search_button" value="search">
+                </form>
+				<button class="logout">LOGOUT</button>
+               <button class="self">SELF</button>
+            </div><!--menu box-->
+            <div class="content">
+				<div id="playBox" class="playBox box-shadow">
+					<div class="detials">
+						<img class="songPic" src="<%=%>">
+						<div class="buton_box">
+							<input type="text" class="detialInput" value="<%=%>" readonly="readonly" name="songname">
+							<input type="text" class="detialInput" value="<%=%>" readonly="readonly" name="airtistname">
+							<input type="button" class="dlButton" name="lrc" value="DOWNLOAD LYC">
+							<input type="button" class="dlButton" name="download" value="DOWNLOAD MUSIC">
+							<input type="checkbox" class="collection" id="collection"><label for="collection">collection</label>
+							<audio id="player1" controls preload="auto" style="margin-top:10px;"></audio>
+						</div>
+					</div><!--detials-->
+					<div class="criticism">
+						<div class="title_word" style="text-align:left;font-size:22px;">
+							&nbsp;criticism
+							<div style="float:right;">
+								<input type="button" class="s_button2" value="Last" onclick="">
+								<input type="button" class="s_button2" value="1" disabled="disabled">
+								<input type="button" class="s_button2" value="Next" onclick="">
+							</div>
+							<table class="table_03">
+								<tr>
+									<td><img class="userImg" src="<%=%>"></td>
+									<td>
+										<input type="text" class="userMessage" value="<%=%>" id="<%=%>" onclick="" readonly="readonly";>
+									</td>
+								</tr>
+							</table>
+							<form id="sendCriticism">
+								<input type="text" class="sendInput">
+								<input type="button" class="sendButton" value="send" onclick="">
+							</form>
+						</div>
+					</div><!--Criticism-->
+				</div>
+            </div>
+			<div class="footer">
+			</div>
+		</div><!--viewlayer-->
+	</body>    
+</html>
