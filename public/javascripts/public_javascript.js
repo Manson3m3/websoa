@@ -118,7 +118,7 @@ function loginSubmit()
 
 //========================================register=========================================
 function noBlock_Register() {
-    document.getElementById('waring').innerHTML="";
+    document.getElementById('waring').value="";
     try {
         flag = 0;
         if (0 == document.getElementById('username').value) 
