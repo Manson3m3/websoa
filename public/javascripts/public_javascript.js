@@ -91,8 +91,7 @@ function loginSubmit()
     var username = $("#email").val();
     var password = $("#password").val();
     var data = {"uemail":email,"upwd":password};
-	try
-	{
+
 		$.ajax({
                 type: "POST",
                 url: "/login",
@@ -105,8 +104,7 @@ function loginSubmit()
 
                 }
             });
-	}
-	catch (e) {}
+
 }
 
 //========================================register=========================================
@@ -181,6 +179,28 @@ function songDetial(obj)
 	catch (e) {}
 }
 //========================================result=========================================
+
+//========================================play=========================================
+function sendMessage()
+{
+    var message = $("#sendInput").val();
+    try
+    {
+        $.ajax({
+            //cache: true,
+            type: "POST",
+            url: "/login",
+            data: message,
+            error: function (data,status) {
+                alert(request);
+            },
+            success: function (data,status) {
+                alert(data);
+            }
+        });
+    }
+    catch (e) {}
+}
 
 //========================================self=========================================
 function ChangePass()
