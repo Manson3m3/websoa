@@ -7,7 +7,7 @@ function selfs()
 		$.ajax({
                 cache: true,
                 type: "GET",
-                url: "./self",
+                url: "/self",
                 datatype: "json",
                 async: false,
                 error: function (data,status) {
@@ -26,7 +26,7 @@ function logout()
 		$.ajax({
                 cache: true,
                 type: "GET",
-                url: "./logout",
+                url: "/logout",
                 datatype: "json",
                 async: false,
                 error: function (data,status) {
@@ -47,7 +47,7 @@ function search()
 		$.ajax({
                 //cache: true,
                 type: "Post",
-                url: "./search",
+                url: "/search",
                 data:info,
                 //datatype: "json",
                 //async: false,
@@ -95,7 +95,7 @@ function loginSubmit()
 	{
 		$.ajax({
                 type: "POST",
-                url: "./login",
+                url: "/login",
                 data: data,
                 error: function (data,status) {
                     alert(data);
@@ -143,7 +143,7 @@ function registerSubmit()
 	{
 		$.ajax({
                 type: "POST",
-                url: "./register",
+                url: "/register",
                 data: data,
                 //datatype: "json",
                 //async: false,
@@ -166,7 +166,7 @@ function songDetial(obj)
 		$.ajax({
                 //cache: true,
                 type: "POST",
-                url: "./songDetial",
+                url: "/songDetial",
                 data: songId,
                 //datatype: "json",
                 //async: false,
@@ -194,7 +194,7 @@ function ChangePass()
         $.ajax({
             //cache: true,
             type: "POST",
-            url: "./login",
+            url: "/login",
             data: data,
             error: function (data,status) {
                 alert(request);
