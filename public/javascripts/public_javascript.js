@@ -196,9 +196,9 @@ function songDetial(obj)
 function ChangePass()
 {
     noBlock_login();
-    var username = $("#email").val();
-    var password = $("#password").val();
-    var data = {"uemail":email,"upwd":password};
+    var oldPass = $("#oldPass").val();
+    var newPass = $("#newPass").val();
+    var data = {"oldPass":oldPass,"newPass":newPass};
     try
     {
         $.ajax({
