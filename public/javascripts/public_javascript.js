@@ -5,11 +5,11 @@ function selfs()
 	try
 	{
 		$.ajax({
-                cache: true,
+                //cache: true,
                 type: "GET",
                 url: "/self",
-                datatype: "json",
-                async: false,
+                //datatype: "json",
+                //async: false,
                 error: function (data,status) {
 
                 },
@@ -39,16 +39,18 @@ function logout()
 	catch (e) {}
 }
 
-function search()
+function search(obj)
 {
+    var name = obj.name;
     var info = $("#search_input").val();
+    var data={"name":name,"info":info};
 	try
 	{
 		$.ajax({
                 //cache: true,
                 type: "Post",
                 url: "/search",
-                data:info,
+                data:data,
                 //datatype: "json",
                 //async: false,
                 error: function (data,status) {
@@ -90,7 +92,7 @@ function loginSubmit()
 	noBlock_login();
     var username = $("#email").val();
     var password = $("#password").val();
-    var data = {"uemail":email,"upwd":password};
+    var data = {"uemail":username,"upwd":password};
 
 		$.ajax({
                 type: "POST",
@@ -136,7 +138,7 @@ function registerSubmit()
 	noBlock_Register();
     var username = $("#email").val();
     var password = $("#password").val();
-    var data = {"uemail":email,"upwd":password};
+    var data = {"uemail":username,"upwd":password};
 	try
 	{
 		$.ajax({
@@ -205,7 +207,7 @@ function sendMessage()
 //========================================self=========================================
 function ChangePass()
 {
-    noBlock_login();
+    //noBlock_login();
     var oldPass = $("#oldPass").val();
     var newPass = $("#newPass").val();
     var data = {"oldPass":oldPass,"newPass":newPass};
