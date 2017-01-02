@@ -10,10 +10,10 @@ function selfs()
                 url: "./self",
                 datatype: "json",
                 async: false,
-                error: function (request) {
+                error: function (data,status) {
 
                 },
-                complete: function (data) {
+                success: function (data,status) {
                 }
             });
 	}
@@ -29,10 +29,10 @@ function logout()
                 url: "./logout",
                 datatype: "json",
                 async: false,
-                error: function (request) {
+                error: function (data,status) {
 
                 },
-                complete: function (data) {
+                complete: function (data,status) {
                     }
             });
 	}
@@ -41,18 +41,20 @@ function logout()
 
 function search()
 {
+    var info = $("#search_input").val();
 	try
 	{
 		$.ajax({
-                cache: true,
-                type: "GET",
+                //cache: true,
+                type: "Post",
                 url: "./search",
-                datatype: "json",
-                async: false,
-                error: function (request) {
+                data:info,
+                //datatype: "json",
+                //async: false,
+                error: function (data,status) {
 
                 },
-                complete: function (data) {
+                complete: function (data,status) {
                     }
             });
 	}
@@ -92,18 +94,14 @@ function loginSubmit()
 	try
 	{
 		$.ajax({
-                //cache: true,
                 type: "POST",
                 url: "./login",
                 data: data,
-                //data: $("#loginForm").serialize(),
-                //datatype: "json",
-                //async: false,
-                error: function (request) {
+                error: function (data,status) {
                     alert(data);
                     document.getElementById('waring').value = "error";
                 },
-                success: function (data) {
+                success: function (data,status) {
 
                 }
             });
@@ -138,30 +136,22 @@ function noBlock_Register() {
 function registerSubmit()
 {
 	noBlock_Register();
+    var username = $("#email").val();
+    var password = $("#password").val();
+    var data = {"uemail":email,"upwd":password};
 	try
 	{
 		$.ajax({
-                cache: true,
                 type: "POST",
                 url: "./register",
-                data: $("#registerForm").serialize(),
-                datatype: "json",
-                async: false,
-                error: function (request) {
+                data: data,
+                //datatype: "json",
+                //async: false,
+                error: function (data,status) {
 
                 },
-                complete: function (data) {
-                    var info = eval("(" + data.responseText + ")");
-                    try {
-                        if (200 == info.code) {
-                            document.getElementById('waring').innerText = info.message;
-                        }
-                        else if (500 == info.code) {
-                            document.getElementById('waring').innerText = info.message;
-                            return false;
-                        }
-                    }
-                    catch (e) { }
+                success: function (data,status) {
+
                 }
             });
 	}
@@ -174,16 +164,16 @@ function songDetial(obj)
 	try
 	{
 		$.ajax({
-                cache: true,
+                //cache: true,
                 type: "POST",
                 url: "./songDetial",
                 data: songId,
-                datatype: "json",
-                async: false,
-                error: function (request) {
+                //datatype: "json",
+                //async: false,
+                error: function (data,status) {
 
                 },
-                complete: function (data) {
+                success: function (data,status) {
                     
                     }
             });
@@ -206,13 +196,10 @@ function ChangePass()
             type: "POST",
             url: "./login",
             data: data,
-            //data: $("#loginForm").serialize(),
-            //datatype: "json",
-            //async: false,
-            error: function (request) {
+            error: function (data,status) {
                 alert(request);
             },
-            success: function (data) {
+            success: function (data,status) {
                 alert(data);
             }
         });
