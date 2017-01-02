@@ -86,30 +86,25 @@ function noBlock_login() {
 function loginSubmit()
 {
 	noBlock_login();
+    var username = $("#email").val();
+    var password = $("#password").val();
+    var data = {"uemail":email,"upwd":password};
 	try
 	{
 		$.ajax({
-                cache: true,
+                //cache: true,
                 type: "POST",
                 url: "./login",
-                data: $("#loginForm").serialize(),
-                datatype: "json",
-                async: false,
+                data: data,
+                //data: $("#loginForm").serialize(),
+                //datatype: "json",
+                //async: false,
                 error: function (request) {
-
+                    alert(data);
+                    document.getElementById('waring').value = "error";
                 },
-                complete: function (data) {
-                    var info = eval("(" + data.responseText + ")");
-                    try {
-                        if (200 == info.code) {
-                            document.getElementById('waring').innerText = info.message;
-                        }
-                        else if (500 == info.code) {
-                            document.getElementById('waring').innerText = info.message;
-                            return false;
-                        }
-                    }
-                    catch (e) { }
+                success: function (data) {
+
                 }
             });
 	}
@@ -196,3 +191,36 @@ function songDetial(obj)
 	catch (e) {}
 }
 //========================================result=========================================
+
+//========================================self=========================================
+function ChangePass()
+{
+    noBlock_login();
+    var username = $("#email").val();
+    var password = $("#password").val();
+    var data = {"uemail":email,"upwd":password};
+    try
+    {
+        $.ajax({
+            //cache: true,
+            type: "POST",
+            url: "./login",
+            data: data,
+            //data: $("#loginForm").serialize(),
+            //datatype: "json",
+            //async: false,
+            error: function (request) {
+                alert(request);
+            },
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+    catch (e) {}
+}
+
+function showForm()
+{
+    document.getElementById("changePassword").style.display="";
+}
