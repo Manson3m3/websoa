@@ -16,7 +16,7 @@
            	  <img src="/stylesheets/images/title.png" class="title_img" />
                 <form>
                 	<input type="text" class="search_input" id="search_input">
-                    <input type="button" class="search_button" name="Song" value="search"onclick="search()">
+                    <input type="button" class="search_button" name="Song" value="search"onclick="search(this)">
                 </form>
 				<button class="logout">LOGOUT</button>
                <button class="self">SELF</button>
@@ -25,9 +25,9 @@
 				<div id="resultBox" class="resultBox box-shadow">
 					<div class="title_word">
 						<div class="search_menu">
-							<input type="button" class="s_button" name="Song" value="Song" onclick="">
-							<input type="button" class="s_button" name="Airtist" value="Airtist" onclick="">
-							<input type="button" class="s_button" name="User" value="User" onclick="">
+							<input type="button" class="s_button" name="Song" value="Song" onclick="search(this)">
+							<input type="button" class="s_button" name="Airtist" value="Airtist" onclick="search(this)">
+							<input type="button" class="s_button" name="User" value="User" onclick="search(this)">
 						</div>
 						Result
 						<div class="pages">

@@ -24,15 +24,15 @@ function logout()
 	try
 	{
 		$.ajax({
-                cache: true,
+                //cache: true,
                 type: "GET",
                 url: "/logout",
-                datatype: "json",
-                async: false,
+               // datatype: "json",
+               // async: false,
                 error: function (data,status) {
 
                 },
-                complete: function (data,status) {
+                success: function (data,status) {
                     }
             });
 	}
@@ -56,7 +56,7 @@ function search(obj)
                 error: function (data,status) {
 
                 },
-                complete: function (data,status) {
+                success: function (data,status) {
                     }
             });
 	}
