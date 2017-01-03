@@ -4,7 +4,7 @@ var  mysql = require('mysql');
 
 router.get('/comment/songid=:songid', function(req, res) {
     var client = mysql.createConnection({'host':'123.206.187.211','port':3306,'user':'fred','password':'2016websoa'});
-    client.query('use zyftest');
+    client.query('use 2016websoa');
     client.query(
         'select * from COMMENT join USER on COMMENT.USER_ID = USER.USER_ID where SONG_ID = ' + req.params.songid,
         function selectCb(error, results, fields) {

@@ -10,7 +10,7 @@ router.get('/recommendlist', function(req, res) {
         'user': 'fred',
         'password': '2016websoa'
     });
-    client.query('use zyftest');
+    client.query('use 2016websoa');
     client.query(
         'SELECT * FROM SONG WHERE SONG_ID >= ((SELECT MAX(SONG_ID) FROM SONG)-(SELECT MIN(SONG_ID) FROM SONG)) * RAND() + (SELECT MIN(SONG_ID) FROM SONG) LIMIT 5',
         function selectCb(error, results, fields) {

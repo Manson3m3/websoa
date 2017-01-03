@@ -2,7 +2,7 @@
  * Created by yzc on 2017/1/3.
  */
 var http = require('http');
-var usr = require('../websoa/connectDB')
+var usr = require('../web_soa/connectDB_yzc')
 
 function url_encode(url){
     url = encodeURIComponent(url);
@@ -18,7 +18,7 @@ function url_encode(url){
 
 function insertSong(search){
     var client = usr.connect();
-    var urlAPI = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=webapp_music&method=baidu.ting.search.catalogSug&format=json&callback=&query="+search+"&_=1413017198449";
+    var urlAPI = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=webapp_music&size=20&method=baidu.ting.search.catalogSug&format=json&callback=&query="+search+"&_=1413017198449";
     http.get(url_encode(urlAPI), function (res) {
         var size = 0;
         var chunks = [];

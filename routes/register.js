@@ -7,7 +7,7 @@ var usr = require('../connectDB_houli.js');
 
 //register
 /*router.route('reg').get(function(req,res){
-    res.render('reg',{title:'×¢²á'});
+    res.render('reg',{title:'×¢ï¿½ï¿½'});
 }).post*/
 
 router.get('/register',function(req,res){
@@ -22,15 +22,15 @@ router.post('/register',function(req,res,next){
                         if(result == true)
                         {
                             console.log('zhucechenggong');
-                            res.send("×¢²á³É¹¦");
-                            res.redirect('/login');
+                            res.send("æ³¨å†ŒæˆåŠŸ");
+                            //res.redirect('/login');
                         }
                         else{
-                            res.send("×¢²áÊ§°Ü");
+                            res.send("æ³¨å†Œå¤±è´¥");
                         }
                     })
                 }else{
-            res.send('¸ÃÕËºÅÒÑ¾­×¢²á');
+            res.send("è´¦å·å·²æ³¨å†Œ");
             //setTimeout("window.location.reload()",2000);
         }
 

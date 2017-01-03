@@ -30,18 +30,20 @@
 							<!--<input type="button" class="s_button" name="User" value="User" onclick="search(this)">-->
 						</div>
 						Result
-						<div class="pages">
+						<div class="pages" style="display:none">
 							<input type="button" class="s_button" value="Last" onclick="">
 							<input type="button" class="s_button" value="1" disabled="disabled">
 							<input type="button" class="s_button" value="Next" onclick="">
 						</div>
 					</div>
 					<table class="table_02">
+					<% for(var i=0; i<Result.length; i++) {%>
 						<tr>
 							<td>
-								<input type="button" class="songInput" value="<%=%>" id="<%=%>" onclick="">
+								<input type="button" class="songInput" value="<%=Result[i].NAME%>" id="<%=Result[i].SONG_ID%>" onclick="songDetial(this)">
 							</td>
 						</tr>
+					<% } %>
 					</table>
 				</div>
             </div>

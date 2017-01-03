@@ -10,7 +10,7 @@ router.get('/ranklist', function(req, res) {
         'user': 'fred',
         'password': '2016websoa'
     });
-    client.query('use zyftest');
+    client.query('use 2016websoa');
     client.query(
         'select * from LIST join SONG on LIST.SONG_ID = SONG.SONG_ID order by RANKING',
         function selectCb(error, results, fields) {

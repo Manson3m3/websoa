@@ -4,7 +4,7 @@ var  mysql = require('mysql');
 
 router.get('/addcomment/content=:content&songid=:songid&userid=:userid', function(req, res) {
     var client = mysql.createConnection({'host':'123.206.187.211','port':3306,'user':'fred','password':'2016websoa'});
-    client.query('use zyftest');
+    client.query('use 2016websoa');
     var  commentAddSql = 'INSERT INTO COMMENT(COMMENT_ID, CONTENT, TIME, SONG_ID, USER_ID) VALUES(0,?,?,?,?)';
     var date = new Date();
     var time = date.toLocaleString();

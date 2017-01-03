@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var ejs = require('ejs')
 var index = require('./routes/index');
 var users = require('./routes/users');
-<<<<<<< HEAD
-
+global.user_id="1";
+global.user_name = "initName";
 //请所有成员在此处添加require*****************************************
 //zengyifan************************************************************
 var homePlay = require('./routes/homePlay');
@@ -17,14 +17,17 @@ var recommendlist = require('./APIs/recommendlist');
 var songinfo = require('./APIs/songinfo');
 var comment = require('./APIs/comment');
 var addcomment = require('./APIs/addcomment');
-=======
->>>>>>> f5e5624f1d601952e6c86faad06dbf908e9f1cef
 /**********************************************************************/
 //houli's
 var session = require('express-session')
 var login = require('./routes/login');
 var register = require('./routes/register');
 var selfpage = require('./routes/selfpage');
+/***********************************************************************/
+/***********************************************************************/
+//yzc's
+var search = require('./routes/search');
+var restfulAPI = require('./routes/restfulAPI');
 /***********************************************************************/
 var app = express();
 
@@ -57,7 +60,7 @@ app.use(session({
 app.use(login);
 app.use(register);
 app.use(selfpage);
-<<<<<<< HEAD
+
 //************************************************************
 //zengyifan***************************************************
 app.use(homePlay);
@@ -67,8 +70,9 @@ app.use('/api', songinfo);
 app.use('/api', comment);
 app.use('/api', addcomment);
 //============================================================
-=======
->>>>>>> f5e5624f1d601952e6c86faad06dbf908e9f1cef
+//yzc's
+app.use(search);
+app.use(restfulAPI);
 
 /*app.get('/',function(req,res){
   res.render('index');

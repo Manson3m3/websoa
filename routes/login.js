@@ -1,45 +1,3 @@
-<<<<<<< HEAD
-/**
- * Created by Administrator on 2016/12/29.
- */
-var express = require('express');
-var router = express.Router();
-var usr = require('../connectDB.js');
-
-
-router.get('/login',function(req,res){
-    res.render('login',{title:'login'});
-})
-
-router.post('/login',function(req,res){
-    console.log("post succeed");
-    client = usr.connect();
-    result = null;
-    usr.queryUser(client,req.body.uemail,function(result){
-        if(result[0] == undefined){
-            res.send('该用户不存在');
-        }else{
-            if(result[0].password == req.body.upwd){
-                //s.redirect('/homepage');
-				res.send('success');
-            }else{
-                res.send("密码输入错误");
-                //setTimeout("redirect('/login')",2000);
-            }
-        }
-    })
-})
-//logout
-router.post('/logout',function(req,res){
-    res.redirect('/login');
-})
-router.get('/toRegister',function(req,res){
-    console.log('ok');
-    res.render('register');
-})
-
-
-=======
 /**
  * Created by Administrator on 2016/12/29.
  */
@@ -59,16 +17,24 @@ router.post('/login',function(req,res){
         if(result[0] == undefined){
             res.send('该用户不存在');
         }else{
-            req.session.userName = req.body.username;
-            res.cookie('userName',req.body.name,{
-                maxAge:1000*2000,httpOnly:true
-            })
+
             if(result[0].PASSWORD == req.body.upwd){
-                res.send('登录成功');
-                res.redirect('/register');
+                usr.queryUser(client,req.body.username,function(result){
+                    console.log(".."+result[0].USER_ID);
+                    user_id= result[0].USER_ID;
+                    console.log(".."+user_id);
+                })
+                user_name = req.body.username;
+                console.log("user_id="+user_id);
+                console.log("dengluchenggong");
+                setTimeout(function(){
+                    console.log("user_id="+user_id);
+                    res.send('登录成功');
+                },1000);
+                //res.redirect('/register');
             }else{
                 res.send("密码输入错误");
-                setTimeout("redirect('/login')",2000);
+                //setTimeout("redirect('/login')",2000);
             }
         }
     })
@@ -83,5 +49,4 @@ router.post('/toRegister',function(req,res){
 })
 
 
->>>>>>> f5e5624f1d601952e6c86faad06dbf908e9f1cef
 module.exports = router;

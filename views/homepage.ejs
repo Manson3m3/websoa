@@ -25,21 +25,25 @@
 				<div id="rankingList" class="rankingList box-shadow">
 					<div class="title_word">Ranking List</div>
 					<table class="table_01">
+					<% for(var i=0; i<rankList.length; i++) {%>
 						<tr>
 							<td>
-								<input type="button" class="songInput" value="<%=%>" id="<%=%>" onclick="songDetial(this)">
+								<input type="button" class="songInput" value="<%= rankList[i].name %>" id="<%= rankList[i].id %>" onclick="songDetial(this)">
 							</td>
 						</tr>
+					<% } %>
 					</table>
 				</div>
 				<div id="recommendList" class="recommendList box-shadow">
 					<div class="title_word">Recommend List</div>
 					<table class="table_01">
+					<% for(var i=0; i<recommendList.length; i++) {%>
 						<tr>
 							<td>
-								<input type="button" class="songInput" value="<%=%>" id="<%=%>" onclick="songDetial(this)">
+								<input type="button" class="songInput" value="<%=recommendList[i].name%>" id="<%=recommendList[i].id%>" onclick="songDetial(this)">
 							</td>
 						</tr>
+					<% } %>
 					</table>
 				</div>
             </div>

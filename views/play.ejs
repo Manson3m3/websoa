@@ -24,14 +24,14 @@
             <div class="content">
 				<div id="playBox" class="playBox box-shadow">
 					<div class="detials">
-						<img class="songPic" src="<%=%>">
+						<img class="songPic" src="<%=Song.picture%>">
 						<div class="buton_box">
-							<input type="text" class="detialInput" value="<%=%>" readonly="readonly" name="songname">
-							<input type="text" class="detialInput" value="<%=%>" readonly="readonly" name="airtistname">
-							<input type="button" class="dlButton" name="lrc" value="DOWNLOAD LYC">
-							<input type="button" class="dlButton" name="download" value="DOWNLOAD MUSIC">
+							<input type="text" class="detialInput" value="<%=Song.name%>" readonly="readonly" name="songname">
+							<input type="text" class="detialInput" value="<%=Song.singer%>" readonly="readonly" name="airtistname">
+							<input type="button" class="dlButton" name="lrc" value="DOWNLOAD LYC" href="<%=Song.lyrics%>">
+							<input type="button" class="dlButton" name="download" value="DOWNLOAD MUSIC" href="<%=Song.download%>">
 							<input type="checkbox" class="collection" id="collection"><label for="collection">collection</label>
-							<audio id="player1" controls preload="auto" style="margin-top:10px;"></audio>
+							<audio id="player1" controls preload="auto" style="margin-top:10px;" src="Song.download"></audio>
 						</div>
 					</div><!--detials-->
 					<div class="criticism">
@@ -44,12 +44,14 @@
 							</div>
 							<div class="table_03" style="overflow: auto">
 								<table class="table_03">
+								<% for(var i=0; i<Comment.length; i++) {%>
 									<tr>
-										<td><img class="userImg" src="<%=%>"></td>
+										<td><img class="userImg" src=""></td>
 										<td>
-											<input type="text" class="userMessage" value="<%=%>" id="<%=%>" onclick="" readonly="readonly";>
+											<input type="text" class="userMessage" value="<%=Comment[i].content%>" id="" onclick="" readonly="readonly";>
 										</td>
 									</tr>
+								<% } %>
 								</table>
 							</div>
 							<form id="sendCriticism">

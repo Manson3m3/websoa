@@ -7,14 +7,17 @@ var usr = require('../connectDB_houli.js');
 
 
 router.get('/selfpage',function(req,res){
-    res.render('selfpage',{title:'selfpage'});
+    res.render('selfpage',{username:user_name});
+    /*usr.listUserSong(client,user_id,function(result){
+        res.render('selfpage')
+    });*/
 })
 
 router.post('/ChangePass',function(req,res){
     client = usr.connect();
     result = null;
     var user = req.session.username;
-    usr.queryUser(client,user,function(result){
+    usr.queryUser(client,user_name,function(result){
         if(req.body.oldPass == result[0].PASSWORD)
         {
             client = usr.connect();
@@ -26,7 +29,7 @@ router.post('/ChangePass',function(req,res){
             })
         }
         else{
-            res.send("请输入正确的原密码")
+            res.send("modify failed");
         }
     })
 })
