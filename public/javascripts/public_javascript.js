@@ -93,17 +93,17 @@ function loginSubmit()
     var username = $("#email").val();
     var password = $("#password").val();
     var data = {"uemail":username,"upwd":password};
-
 		$.ajax({
                 type: "POST",
                 url: "/login",
                 data: data,
                 error: function (data,status) {
-                    alert(data);
                     document.getElementById('waring').value = "error";
+                    alert(data);
                 },
                 success: function (data,status) {
-
+                    //alert(data);
+                    document.getElementById('waring').value = data;
                 }
             });
 

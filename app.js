@@ -9,6 +9,17 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 //请所有成员在此处添加require*****************************************
+
+/**********************************************************************/
+//houli's
+var session = require('express-session')
+var login = require('./routes/login');
+var reg = require('./routes/reg');
+//var modifyPw = require('./routes/modifyPw');
+var selfpage = require('./routes/selfpage');
+
+/***********************************************************************/
+
 //********************************************************************
 var app = express();
 
@@ -27,7 +38,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 //请所有成员在此处添加路径====================================
-
+//houli's*****************************************************
+app.use(session({
+  secret:'an',
+  resave:false,
+  saveUninitialized:true,
+}))
+app.use(login);
+app.use(reg);
+//app.use(modifyPw);
+app.use(selfpage);
+//************************************************************
 //============================================================
 
 // catch 404 and forward to error handler
