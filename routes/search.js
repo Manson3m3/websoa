@@ -6,6 +6,11 @@ var router = express.Router();
 var usr = require('../connectDB.js');
 var webApi = require('../WebAPI.js');
 /* GET home page. */
+router.get('/test', function(req, res, next) {
+  //res.render('index', { title: 'Express' });
+  //var supplies={"Songlist":[{"name":1,"age":1},{"name":2,"age":2}]};
+  res.render('test');
+});
 router.get('/search', function(req, res) {
 
     client = usr.connect();
