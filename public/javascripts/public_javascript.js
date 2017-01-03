@@ -48,7 +48,7 @@ function search(obj)
 	{
 		$.ajax({
                 //cache: true,
-                type: "Post",
+                type: "Get",
                 url: "/search",
                 data:data,
                 //datatype: "json",
