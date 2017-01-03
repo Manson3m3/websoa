@@ -109,19 +109,14 @@ function loginSubmit()
 
 }
 
-function loginSubmit()
+function toRegister()
 {
-    noBlock_login();
-    var username = $("#email").val();
-    var password = $("#password").val();
-    var data = {"uemail":username,"upwd":password};
     $.ajax({
         type: "POST",
-        url: "/login",
+        url: "/toRegister",
         data: data,
         error: function (data,status) {
             document.getElementById('waring').value = "error";
-            alert(data);
         },
         success: function (data,status) {
             //alert(data);
@@ -178,6 +173,23 @@ function registerSubmit()
             });
 	}
 	catch (e) {}
+}
+
+function toLogin()
+{
+    $.ajax({
+        type: "POST",
+        url: "/toLogin",
+        data: data,
+        error: function (data,status) {
+            document.getElementById('waring').value = "error";
+        },
+        success: function (data,status) {
+            //alert(data);
+            document.getElementById('waring').value = data;
+        }
+    });
+
 }
 //========================================home=========================================
 function songDetial(obj)
@@ -238,7 +250,7 @@ function ChangePass()
         $.ajax({
             //cache: true,
             type: "POST",
-            url: "/login",
+            url: "/changePass",
             data: data,
             error: function (data,status) {
                 alert(request);
