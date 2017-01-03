@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//******************************************
+var ejs = require('ejs')
 var index = require('./routes/index');
 var users = require('./routes/users');
+<<<<<<< HEAD
 
 //请所有成员在此处添加require*****************************************
 //zengyifan************************************************************
@@ -16,22 +17,22 @@ var recommendlist = require('./APIs/recommendlist');
 var songinfo = require('./APIs/songinfo');
 var comment = require('./APIs/comment');
 var addcomment = require('./APIs/addcomment');
+=======
+>>>>>>> f5e5624f1d601952e6c86faad06dbf908e9f1cef
 /**********************************************************************/
 //houli's
 var session = require('express-session')
 var login = require('./routes/login');
-var reg = require('./routes/reg');
-//var modifyPw = require('./routes/modifyPw');
+var register = require('./routes/register');
 var selfpage = require('./routes/selfpage');
-
 /***********************************************************************/
-
-//********************************************************************
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.engine('.ejs',ejs.__express);
 app.set('view engine', 'ejs');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -40,20 +41,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//路径
+
+
+
 app.use('/', index);
 app.use('/users', users);
-//请所有成员在此处添加路径====================================
-//houli's*****************************************************
+/***************************************************/
+
+//houli's
 app.use(session({
   secret:'an',
   resave:false,
   saveUninitialized:true,
 }))
 app.use(login);
-app.use(reg);
-//app.use(modifyPw);
+app.use(register);
 app.use(selfpage);
+<<<<<<< HEAD
 //************************************************************
 //zengyifan***************************************************
 app.use(homePlay);
@@ -63,7 +67,13 @@ app.use('/api', songinfo);
 app.use('/api', comment);
 app.use('/api', addcomment);
 //============================================================
+=======
+>>>>>>> f5e5624f1d601952e6c86faad06dbf908e9f1cef
 
+/*app.get('/',function(req,res){
+  res.render('index');
+})*/
+/****************************************************/
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -83,3 +93,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+//module.exports = router;
