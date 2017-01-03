@@ -3,9 +3,41 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <script type="text/javascript" language="javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script type="text/javascript" language="javascript">
+      /*window.onload=function()
+      {
+        $.ajax({
+          type: "POST",
+          url: "/ranklist",
+          data: data,
+          error: function (data,status) {
+            alert("err1");
+          },
+          success: function (data,status) {
+            alert("success1");
+          }
+        });
+        $.ajax({
+          type: "POST",
+          url: "/recommendlist",
+          data: data,
+          error: function (data,status) {
+            alert("err2");
+          },
+          success: function (data,status) {
+            alert("success2");
+          }
+        });
+      }*/
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to <%- title1%></p>
+  <p>haha<%- title1[0].singer %></p>
   </body>
 </html>

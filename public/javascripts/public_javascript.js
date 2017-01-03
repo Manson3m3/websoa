@@ -104,6 +104,7 @@ function loginSubmit()
                 success: function (data,status) {
                     //alert(data);
                     document.getElementById('waring').value = data;
+                    window.location.href='/toRegister';
                 }
             });
 
@@ -111,16 +112,20 @@ function loginSubmit()
 
 function toRegister()
 {
+    alert("1");
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/toRegister",
-        data: data,
+        //data: data,
         error: function (data,status) {
-            document.getElementById('waring').value = "error";
+            //document.getElementById('waring').value =
+            window.location.href='/toRegister';
         },
         success: function (data,status) {
+           location.href='/toRegister';
+            alert("ok");
             //alert(data);
-            document.getElementById('waring').value = data;
+            //document.getElementById('waring').value = data;
         }
     });
 

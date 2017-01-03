@@ -32,7 +32,10 @@ router.post('/login',function(req,res){
 router.post('/logout',function(req,res){
     res.redirect('/login');
 })
-
+router.get('/toRegister',function(req,res){
+    console.log('ok');
+    res.render('register');
+})
 
 
 module.exports = router;

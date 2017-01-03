@@ -9,7 +9,13 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 //请所有成员在此处添加require*****************************************
-
+//zengyifan************************************************************
+var homePlay = require('./routes/homePlay');
+var ranklist = require('./APIs/ranklist');
+var recommendlist = require('./APIs/recommendlist');
+var songinfo = require('./APIs/songinfo');
+var comment = require('./APIs/comment');
+var addcomment = require('./APIs/addcomment');
 /**********************************************************************/
 //houli's
 var session = require('express-session')
@@ -49,6 +55,13 @@ app.use(reg);
 //app.use(modifyPw);
 app.use(selfpage);
 //************************************************************
+//zengyifan***************************************************
+app.use(homePlay);
+app.use('/api', ranklist);
+app.use('/api', recommendlist);
+app.use('/api', songinfo);
+app.use('/api', comment);
+app.use('/api', addcomment);
 //============================================================
 
 // catch 404 and forward to error handler
