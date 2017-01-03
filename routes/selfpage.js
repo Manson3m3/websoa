@@ -3,28 +3,26 @@
  */
 var express = require('express');
 var router = express.Router();
-var usr = require('../connectDB.js');
+var usr = require('../connectDB_houli.js');
 
 
 router.get('/selfpage',function(req,res){
     res.render('selfpage',{title:'selfpage'});
 })
 
-
-
-
-
-
-router.post('/login',function(req,res){
+router.post('/ChangePass',function(req,res){
     client = usr.connect();
     result = null;
-    usr.queryUser(client,CURRENTUSER,function(result){
-        if(req.body.oldPass == result[0].password)
+    var user = req.session.username;
+    usr.queryUser(client,user,function(result){
+        if(req.body.oldPass == result[0].PASSWORD)
         {
             client = usr.connect();
             temp = null;
-            usr.modifyPw(client,CURRENTUSER,req.body.newPass,function(temp){
-                res.send(temp);
+            usr.modifyPw(client,user,req.body.newPass,function(temp){
+                if(temp == true){
+                    res.send("modify password succeed");
+                }
             })
         }
         else{
