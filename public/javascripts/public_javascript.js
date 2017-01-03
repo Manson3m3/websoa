@@ -6,7 +6,7 @@ function selfs()
 	{
 		$.ajax({
                 //cache: true,
-                type: "GET",
+                type: "POST",
                 url: "/self",
                 //datatype: "json",
                 //async: false,
@@ -25,7 +25,7 @@ function logout()
 	{
 		$.ajax({
                 //cache: true,
-                type: "GET",
+                type: "POST",
                 url: "/logout",
                // datatype: "json",
                // async: false,
@@ -48,7 +48,7 @@ function search(obj)
 	{
 		$.ajax({
                 //cache: true,
-                type: "Get",
+                type: "POST",
                 url: "/search",
                 data:data,
                 //datatype: "json",
@@ -90,9 +90,9 @@ function noBlock_login() {
 function loginSubmit()
 {
 	noBlock_login();
-    var username = $("#email").val();
+    var username = $("#username").val();
     var password = $("#password").val();
-    var data = {"uemail":username,"upwd":password};
+    var data = {"username":username,"upwd":password};
 		$.ajax({
                 type: "POST",
                 url: "/login",
