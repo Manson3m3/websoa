@@ -12,20 +12,18 @@ router.get('/ranklist', function(req, res) {
     });
     client.query('use 2016websoa');
     client.query(
-        'select * from LIST join SONG on LIST.SONG_ID = SONG.SONG_ID order by RANKING',
+        'select * from SONG order by COLLECTION DESC',
         function selectCb(error, results, fields) {
             if (error) {
                 console.log('GetData Error: ' + error.message);
                 client.end();
                 return;
             }
-            var data = [];
-            for (var i = 0; i < results.length; i++) {
-                data.push({ rank: results[i]['RANKING'], id: results[i]['SONG_ID'], name: results[i]['NAME'], singer: results[i]['SINGER'] });
+            var data = []
+            for (var i = 0; i < 10; i++) {
+                data.push({ id: results[i]['SONG_ID'], name: results[i]['NAME'], singer: results[i]['SINGER'] });
             }
-			console.log(data);
-			
-            res.send(data);
+            res.json(data);
         }
     );
     client.end();
